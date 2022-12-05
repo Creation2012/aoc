@@ -1,0 +1,12 @@
+f = open("list.txt")
+
+tab = []
+
+for x in f:
+    tab.append(int(x.strip()))
+
+for i in tab:
+    for j in tab:
+        for o in tab:
+            if i + j + o == 2020:
+                print(i*j*o)
