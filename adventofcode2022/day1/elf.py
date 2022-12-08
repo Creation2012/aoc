@@ -6,7 +6,6 @@ elf_calories = []
 calories = 0
 i = 0
 
-
 for line in output:
     if line != '\n':
         calories += int(line)

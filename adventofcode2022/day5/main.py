@@ -2,7 +2,6 @@ file = "input.txt"
 output = open(file,'r')
 
 N = 9 
-
 stacks = [[]*N for i in range(N)]
 
 col = 0

@@ -1,5 +1,6 @@
 file = "input.txt"
 output = open(file,'r')
+
 prior = 0
 
 # PART 1
