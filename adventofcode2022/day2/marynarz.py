@@ -1,10 +1,10 @@
 file = "input.txt"
 output = open(file,'r')
 
-shape = (1,2,3)
-outcome = (3,6,0)
-first = ("A","B","C")
-second = ("X","Y","Z")
+#shape = (1,2,3)
+#outcome = (3,6,0)#
+#first = ("A","B","C")
+#second = ("X","Y","Z")
 
 # dict per action rock, paper, scissors
 round = {"A X":3+1,
