@@ -2,7 +2,10 @@
 # proposition:   1366529
 
 pwd = ''
-dir_sizes = {} 
+dirs = {}
+dirs['/'] = 0 
+dir_files = {}
+parent = ''
 
 with open("input.txt") as f:
     for line in f:
@@ -12,36 +15,44 @@ with open("input.txt") as f:
                 if var[2] == "/":
                     pwd = "/"
                 elif var[2] == "..":
-                    #pwd += var[2]+"/"
                     pwd = pwd[:len(pwd[:-1])-last_added]
                 else:
                     pwd += var[2]+"/"
                     last_added = len(var[2]+"/")
             elif var[1] == "ls":
-                pass
+                parent = pwd
         elif var[0] == "dir":
-            pass
+            dirs[parent] = 1
+            #dir_files[pwd].append(var[1]) 
         else:
-            dir_sizes[pwd] = dir_sizes.get(pwd,0) + int(var[0])
+            pass
+            #print(var)
+            #dirs[pwd] = {var[1]: int(var[0])} 
+            #dirs[pwd] = {(var[0],var[1])}
+            #dirs[pwd] = dirs.get(pwd,0) + int(var[0])
+            #dir_files[pwd].append(var[1]) 
+
+
+print(dirs)
 
 depth = 0
 new_ds = {}
 last_added = 0
 
-for dir in dir_sizes:
-    new = '/'
-    l = list(filter(('').__ne__,dir.split('/')))
-    #print(l)
-    for i, el in enumerate(l):
-        #print(i,el)
-        if el != ".." and el != '':
-            new += el + "/"
-            last_added = len(el)
-        elif el != '':
-            if last_added > 0: 
-                new = new[:len(new[:-1])-last_added]
-
-    new_ds[new] = dir_sizes[dir]
+#for dir in dir_sizes:
+#    new = '/'
+#    l = list(filter(('').__ne__,dir.split('/')))
+#    #print(l)
+#    for i, el in enumerate(l):
+#        #print(i,el)
+#        if el != ".." and el != '':
+#            new += el + "/"
+#            last_added = len(el)
+#        elif el != '':
+#            if last_added > 0: 
+#                new = new[:len(new[:-1])-last_added]
+#
+#    new_ds[new] = dir_sizes[dir]
 
 print(new_ds)
 print()
